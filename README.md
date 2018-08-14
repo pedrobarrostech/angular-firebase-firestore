@@ -1,14 +1,6 @@
-<p align="center">
+# Angular + Firebase + Firestore
 
-<a href="https://slackin-pbfjhfxnsa.now.sh"><img src="https://slackin-pbfjhfxnsa.now.sh/badge.svg"></a>
-
-<a href="https://circleci.com/gh/codediodeio/angular-firestarter"><img src="https://circleci.com/gh/codediodeio/angular-firestarter.svg?style=svg"></a>
-
-</p>
-
-# FireStarter
-
-FireStarter is an Angular PWA powered by Firebase. It can serve as a foundation to learn this stack and roll out more complex features.
+Created based on FireStarter, an Angular PWA powered by Firebase. It can serve as a foundation to learn this stack and roll out more complex features.
 
 - [Live Demo](https://firestarter-96e46.firebaseapp.com/)
 - [Lessons and Screencasts](https://angularfirebase.com)
