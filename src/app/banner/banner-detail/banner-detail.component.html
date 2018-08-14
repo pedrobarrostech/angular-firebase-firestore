@@ -1,8 +1,0 @@
-<div class="basic-banner">
-    <h3>{{ banner.content }}</h3>
-    <span class="button is-small is-info" (click)='addHeartToBanner(banner.hearts)'>
-    Heart <i class="fa fa-heart" style="margin-left: 5px;"></i>
-  </span>
-    <span class="button is-small is-danger" (click)='deleteBanner(banner?.id)'>Delete</span>
-    <p>This banner has been hearted {{ banner.hearts || 0 }} times.</p>
-</div>

@@ -1,19 +1,19 @@
 import { Component, OnInit, OnDestroy, AfterViewInit, ViewChild } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
-import { BannerService } from '../banner.service';
-import { UploadService } from '../../shared/_services/upload.service';
+import { BannerService } from './banner.service';
+import { UploadService } from '../shared/_services/upload.service';
 import { Subject } from 'rxjs';
-import datatablesConfig from '../../shared/_configs/datatable-pt-br.config';
+import datatablesConfig from '../shared/_configs/datatable-pt-br.config';
 import * as firebase from 'firebase';
 import { DataTableDirective } from 'angular-datatables';
 
 
 @Component({
-  selector: 'banner-list',
-  templateUrl: './banner-list.component.html',
-  styleUrls: ['./banner-list.component.scss']
+  selector: 'app-banner',
+  templateUrl: './banner.component.html',
+  styleUrls: ['./banner.component.scss']
 })
-export class BannerListComponent implements OnInit, OnDestroy, AfterViewInit {
+export class BannerComponent implements OnInit, OnDestroy, AfterViewInit {
   @ViewChild(DataTableDirective)
   public dtElement: DataTableDirective;
   public dtTrigger = new Subject();

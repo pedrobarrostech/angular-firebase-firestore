@@ -9,17 +9,17 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AngularFireDatabaseModule } from 'angularfire2/database-deprecated';
 import { CommonModule } from '@angular/common';
 
-import { ClientService } from '../shared/_services/client.service';
-import { ScheduleService } from '../shared/_services/schedule.service';
-import { EntryService } from '../shared/_services/entry.service';
-import { AuthGuard } from '../shared/_guards/auth.guard';
-import { MessageService } from '../shared/_services/message.service';
-import { BannerService } from '../shared/_services/banner.service';
-import { SectionService } from '../shared/_services/section.service';
-import { ProductService } from '../shared/_services/product.service';
-import { ServiceService } from '../shared/_services/service.service';
-import { UserService } from '../shared/_services/user.service';
-import { UploadService } from '../shared/_services/upload.service';
+import { ClientService } from './_services/client.service';
+import { ScheduleService } from './_services/schedule.service';
+import { EntryService } from './_services/entry.service';
+import { AuthGuard } from './_guards/auth.guard';
+import { MessageService } from './_services/message.service';
+import { BannerService } from './_services/banner.service';
+import { SectionService } from './_services/section.service';
+import { ProductService } from './_services/product.service';
+import { ServiceService } from './_services/service.service';
+import { UserService } from './_services/user.service';
+import { UploadService } from './_services/upload.service';
 
 const MODULES = [
   CommonModule,
