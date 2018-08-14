@@ -10,11 +10,11 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 
 // Firestarter App Modules
-import { CoreModule } from './core/core.module';
 import { UploadsModule } from './uploads/uploads.module';
 import { UiModule } from './ui/ui.module';
 import { NotesModule } from './notes/notes.module';
 import { BannerModule } from './banner/banner.module';
+import { MinibannerModule } from './minibanner/minibanner.module';
 
 // AngularFire2 Modules
 import { AngularFireModule } from 'angularfire2';
@@ -33,10 +33,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
     BrowserTransferStateModule,
     AppRoutingModule,
-    CoreModule,
     UiModule,
     NotesModule,
     BannerModule,
+    MinibannerModule,
     UploadsModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,

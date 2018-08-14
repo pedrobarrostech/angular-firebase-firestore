@@ -2,7 +2,7 @@ import { TestBed, inject } from '@angular/core/testing';
 
 import { BannerService } from './banner.service';
 
-xdescribe('BannersService', () => {
+xdescribe('BannerService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       providers: [BannerService]

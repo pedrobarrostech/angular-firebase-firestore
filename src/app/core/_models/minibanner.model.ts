@@ -1,9 +1,10 @@
-export class Service {
+export class Minibanner {
+
   constructor(
     public id?: number,
-    public title?: string,
+    public name?: string,
     public image?: string|any,
-    public description?: string,
+    public order?: number,
     public active?: number) {
   }
 

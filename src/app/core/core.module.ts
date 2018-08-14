@@ -1,10 +1,65 @@
 import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { RouterModule } from '@angular/router';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { DataTablesModule } from 'angular-datatables';
+import { AngularFireAuthModule } from 'angularfire2/auth';
+import { AngularFireDatabaseModule } from 'angularfire2/database-deprecated';
 import { CommonModule } from '@angular/common';
-import { AuthService } from './auth.service';
-import { AuthGuard } from './auth.guard';
-import { NotifyService } from './notify.service';
+import { BannerService } from './_services/banner.service';
+import { MinibannerService } from './_services/minibanner.service';
+import { UploadService } from './_services/upload.service';
+import { AuthGuard } from './_services/auth.guard';
+import { AuthService } from './_services/auth.service';
+import { NotifyService } from './_services/notify.service';
+
+const MODULES = [
+  CommonModule,
+  HttpClientModule,
+  RouterModule,
+  BrowserModule,
+  FormsModule,
+  ReactiveFormsModule,
+  BrowserAnimationsModule,
+  DataTablesModule,
+  AngularFireAuthModule,
+  AngularFireDatabaseModule
+];
+
+const PIPES = [
+  // put pipes here
+];
+
+const COMPONENTS = [
+  // put shared components here
+];
+
+const SERVICES = [
+  AuthGuard,
+  AuthService,
+  BannerService,
+  MinibannerService,
+  UploadService,
+  NotifyService
+];
 
 @NgModule({
-  providers: [AuthService, AuthGuard, NotifyService]
+  imports: [
+    ...MODULES
+  ],
+  declarations: [
+    ...PIPES,
+    ...COMPONENTS
+  ],
+  providers: [
+    ...SERVICES
+  ],
+  exports: [
+    ...MODULES,
+    ...PIPES,
+    ...COMPONENTS
+  ]
 })
 export class CoreModule { }

@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy, AfterViewInit, ViewChild } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
-import { BannerService } from './banner.service';
+import { MinibannerService } from '../core/_services/minibanner.service';
 import { UploadService } from '../core/_services/upload.service';
 import { Subject } from 'rxjs';
 import datatablesConfig from '../core/_configs/datatable-pt-br.config';
@@ -9,34 +9,34 @@ import { DataTableDirective } from 'angular-datatables';
 
 
 @Component({
-  selector: 'app-banner',
-  templateUrl: './banner.component.html',
-  styleUrls: ['./banner.component.scss']
+  selector: 'app-minibanner',
+  templateUrl: './minibanner.component.html',
+  styleUrls: ['./minibanner.component.scss']
 })
-export class BannerComponent implements OnInit, OnDestroy, AfterViewInit {
+export class MinibannerComponent implements OnInit, OnDestroy, AfterViewInit {
   @ViewChild(DataTableDirective)
   public dtElement: DataTableDirective;
   public dtTrigger = new Subject();
   public isLoading = true;
-  public addBannerForm: FormGroup;
+  public addMinibannerForm: FormGroup;
   private name = new FormControl('', Validators.required);
   private order = new FormControl('', Validators.required);
   private active = new FormControl('', Validators.required);
   private infoMsg = { body: '', type: 'info'};
   private banners: any = [];
-  private banner = {};
+  private minibanner = {};
   private imageEdit;
   private imageEditRef;
   private isEditing = false;
   private dtOptions: DataTables.Settings = {};
   private bannerEditImage = {};
 
-  constructor(private _bannerService: BannerService, private formBuilder: FormBuilder) { }
+  constructor(private _bannerService: MinibannerService, private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
     this.dtOptions = datatablesConfig;
-    this.banners = this.getBanners();
-    this.addBannerForm = this.formBuilder.group({
+    this.banners = this.getMinibanners();
+    this.addMinibannerForm = this.formBuilder.group({
       name: this.name,
       order: this.order,
       image: null,
@@ -49,7 +49,7 @@ export class BannerComponent implements OnInit, OnDestroy, AfterViewInit {
     this.dtTrigger.next();
   }
 
-  getBanners(): void {
+  getMinibanners(): void {
     this._bannerService.getData().subscribe(
       data => {
         this.banners = data;
@@ -60,34 +60,34 @@ export class BannerComponent implements OnInit, OnDestroy, AfterViewInit {
     );
   }
 
-  addBanner(): void {
-    this._bannerService.create(this.addBannerForm.value);
+  addMinibanner(): void {
+    this._bannerService.create(this.addMinibannerForm.value);
     this.rerender();
   }
 
-  editBanner(banner): void {
+  editMinibanner(minibanner): void {
     if (this.imageEdit) {
-      banner.image = this.imageEdit;
-      banner.imageRef = this.imageEditRef;
+      minibanner.image = this.imageEdit;
+      minibanner.imageRef = this.imageEditRef;
     }
 
-    this._bannerService.update(banner.id, banner).then(
+    this._bannerService.update(minibanner.id, minibanner).then(
       res => {
         this.isEditing = false;
-        this.sendInfoMsg('Banner editado com sucesso.', 'success');
+        this.sendInfoMsg('Minibanner editado com sucesso.', 'success');
         this.rerender();
       },
       error => console.log(error)
     );
   }
 
-  deleteBanner(banner): void {
-    if (window.confirm('Tem certeza que quer deletar este banner?')) {
-      this._bannerService.delete(banner.id).then(
+  deleteMinibanner(minibanner): void {
+    if (window.confirm('Tem certeza que quer deletar este minibanner?')) {
+      this._bannerService.delete(minibanner.id).then(
         res => {
-          UploadService.deleteFile(banner.imageRef);
-          this.sendInfoMsg('Banner deletado com sucesso.', 'success');
-          this.getBanners();
+          UploadService.deleteFile(minibanner.imageRef);
+          this.sendInfoMsg('Minibanner deletado com sucesso.', 'success');
+          this.getMinibanners();
           this.rerender();
         },
         error => console.log(error)
@@ -107,8 +107,8 @@ export class BannerComponent implements OnInit, OnDestroy, AfterViewInit {
         const storageRef = ref.child(filename);
         storageRef.put(file).then((snapshot) => {
           snapshot.ref.getDownloadURL().then((downloadURL) => {
-            this.addBannerForm.get('image').setValue(downloadURL);
-            this.addBannerForm.get('imageRef').setValue(filename);
+            this.addMinibannerForm.get('image').setValue(downloadURL);
+            this.addMinibannerForm.get('imageRef').setValue(filename);
             this.imageEdit = downloadURL;
             this.imageEditRef = filename;
           });
@@ -117,15 +117,15 @@ export class BannerComponent implements OnInit, OnDestroy, AfterViewInit {
     }
   }
 
-  enableEditing(banner): void {
+  enableEditing(minibanner): void {
     this.isEditing = true;
-    this.banner = banner;
+    this.minibanner = minibanner;
   }
 
   cancelEditing(): void {
     this.isEditing = false;
-    this.banner = {};
-    this.sendInfoMsg('Edição de banner cancelada.', 'warning');
+    this.minibanner = {};
+    this.sendInfoMsg('Edição de minibanner cancelada.', 'warning');
   }
 
   sendInfoMsg(body, type, time = 3000): void {
@@ -139,12 +139,14 @@ export class BannerComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   rerender(): void {
-    this.dtElement.dtInstance.then((dtInstance: DataTables.Api) => {
-      // Destroy the table first
-      dtInstance.destroy();
-      // Call the dtTrigger to rerender again
-      this.dtTrigger.next();
-    });
+    if (this.dtElement && this.dtElement.dtInstance) {
+      this.dtElement.dtInstance.then((dtInstance: DataTables.Api) => {
+        // Destroy the table first
+        dtInstance.destroy();
+        // Call the dtTrigger to rerender again
+        this.dtTrigger.next();
+      });
+    }
   }
 
 }

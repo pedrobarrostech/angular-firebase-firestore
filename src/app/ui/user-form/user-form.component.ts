@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ReactiveFormsModule, FormGroup, FormBuilder, Validators } from '@angular/forms';
 
-import { AuthService } from '../../core/auth.service';
+import { AuthService } from '../../core/_services/auth.service';
 
 type UserFields = 'email' | 'password';
 type FormErrors = { [u in UserFields]: string };
