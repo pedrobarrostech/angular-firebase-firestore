@@ -4,6 +4,10 @@
 @import url('https://use.fontawesome.com/releases/v5.2.0/css/all.css');
 
 @import 'bulma/css/bulma.css';
+
+// Import Extensions
+@import "bulma-extensions/bulma-pageloader/dist/css/bulma-pageloader.min.css";
+
 // Colors
 $white: #fff !default;
 $black: #000 !default;
@@ -186,7 +190,30 @@ app-root:empty+.loading {
     margin-right: 5px;
 }
 
-#DataTables_Table_0_filter > label > input[type="search"] {
+.dataTables_wrapper .dataTables_length {
+  width:250px;
+}
+
+table.dataTable thead th, table.dataTable thead td, table.dataTable.no-footer {
+  border-bottom:1px solid #dbdbdb;
+}
+
+
+#DataTables_Table_0_filter > label > input[type="search"],
+#DataTables_Table_1_filter > label > input[type="search"],
+#DataTables_Table_2_filter > label > input[type="search"],
+#DataTables_Table_3_filter > label > input[type="search"],
+#DataTables_Table_4_filter > label > input[type="search"],
+#DataTables_Table_5_filter > label > input[type="search"],
+#DataTables_Table_6_filter > label > input[type="search"],
+#DataTables_Table_7_filter > label > input[type="search"],
+#DataTables_Table_8_filter > label > input[type="search"],
+#DataTables_Table_9_filter > label > input[type="search"],
+#DataTables_Table_10_filter > label > input[type="search"],
+#DataTables_Table_11_filter > label > input[type="search"],
+#DataTables_Table_12_filter > label > input[type="search"],
+#DataTables_Table_13_filter > label > input[type="search"],
+#DataTables_Table_14_filter > label > input[type="search"] {
   -webkit-appearance: none;
   align-items: center;
   border: 1px solid transparent;
@@ -209,7 +236,21 @@ app-root:empty+.loading {
   box-shadow: inset 0 1px 2px rgba(10, 10, 10, 0.1);
 }
 
-#DataTables_Table_0_length > label > select {
+#DataTables_Table_0_length > label > select,
+#DataTables_Table_1_length > label > select,
+#DataTables_Table_2_length > label > select,
+#DataTables_Table_3_length > label > select,
+#DataTables_Table_4_length > label > select,
+#DataTables_Table_5_length > label > select,
+#DataTables_Table_6_length > label > select,
+#DataTables_Table_7_length > label > select,
+#DataTables_Table_8_length > label > select,
+#DataTables_Table_9_length > label > select,
+#DataTables_Table_10_length > label > select,
+#DataTables_Table_11_length > label > select,
+#DataTables_Table_12_length > label > select,
+#DataTables_Table_13_length > label > select,
+#DataTables_Table_14_length > label > select {
   background-color: white;
   border-color: #dbdbdb;
   color: #363636;
@@ -225,7 +266,21 @@ app-root:empty+.loading {
 }
 
 
-#DataTables_Table_0_paginate > span > a {
+#DataTables_Table_0_paginate > span > a,
+#DataTables_Table_1_paginate > span > a,
+#DataTables_Table_2_paginate > span > a,
+#DataTables_Table_3_paginate > span > a,
+#DataTables_Table_4_paginate > span > a,
+#DataTables_Table_5_paginate > span > a,
+#DataTables_Table_6_paginate > span > a,
+#DataTables_Table_7_paginate > span > a,
+#DataTables_Table_8_paginate > span > a,
+#DataTables_Table_9_paginate > span > a,
+#DataTables_Table_10_paginate > span > a,
+#DataTables_Table_11_paginate > span > a,
+#DataTables_Table_12_paginate > span > a,
+#DataTables_Table_13_paginate > span > a,
+#DataTables_Table_14_paginate > span > a {
   border-color: transparent;
   color: #fff;
   margin-right: 5px;
@@ -243,19 +298,71 @@ app-root:empty+.loading {
   white-space: nowrap;
 }
 
-.dataTables_wrapper .dataTables_length {
-  width:250px;
-}
-
-table.dataTable thead th, table.dataTable thead td, table.dataTable.no-footer {
-  border-bottom:1px solid #dbdbdb;
-}
-
-#DataTables_Table_0 > thead > tr > th:last-child {
+#DataTables_Table_0 > thead > tr > th:last-child,
+#DataTables_Table_1 > thead > tr > th:last-child,
+#DataTables_Table_2 > thead > tr > th:last-child,
+#DataTables_Table_3 > thead > tr > th:last-child,
+#DataTables_Table_4 > thead > tr > th:last-child,
+#DataTables_Table_5 > thead > tr > th:last-child,
+#DataTables_Table_6 > thead > tr > th:last-child,
+#DataTables_Table_7 > thead > tr > th:last-child,
+#DataTables_Table_8 > thead > tr > th:last-child,
+#DataTables_Table_9 > thead > tr > th:last-child,
+#DataTables_Table_10 > thead > tr > th:last-child,
+#DataTables_Table_11 > thead > tr > th:last-child,
+#DataTables_Table_12 > thead > tr > th:last-child,
+#DataTables_Table_13 > thead > tr > th:last-child,
+#DataTables_Table_14 > thead > tr > th:last-child
+{
   width: 11% !important;
 }
 
 
-#DataTables_Table_0 form input {
+#DataTables_Table_0 form input,
+#DataTables_Table_1 form input,
+#DataTables_Table_2 form input,
+#DataTables_Table_3 form input,
+#DataTables_Table_4 form input,
+#DataTables_Table_5 form input,
+#DataTables_Table_6 form input,
+#DataTables_Table_7 form input,
+#DataTables_Table_8 form input,
+#DataTables_Table_9 form input,
+#DataTables_Table_10 form input,
+#DataTables_Table_11 form input,
+#DataTables_Table_12 form input,
+#DataTables_Table_13 form input,
+#DataTables_Table_14 form input {
   width: 97%;
+}
+
+.dropzone {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  font-weight: 200;
+  height: 120px;
+  border: 2px dashed #f16624;
+  border-radius: 5px;
+  background: white;
+  margin: 10px 0;
+
+  &.hovering {
+      border: 2px solid #f16624;
+      color: #dadada !important;
+  }
+
+  .file-label {
+      font-size: 1.2em;
+  }
+}
+
+progress::-webkit-progress-value {
+  transition: width 0.1s ease;
+}
+
+.active-page {
+  background-color: #fafafa;
+  color: #3273dc;
 }

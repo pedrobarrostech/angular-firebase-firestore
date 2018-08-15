@@ -7,7 +7,6 @@ import datatablesConfig from '../core/_configs/datatable-pt-br.config';
 import * as firebase from 'firebase';
 import { DataTableDirective } from 'angular-datatables';
 
-
 @Component({
   selector: 'app-minibanner',
   templateUrl: './minibanner.component.html',
@@ -23,7 +22,7 @@ export class MinibannerComponent implements OnInit, OnDestroy, AfterViewInit {
   private order = new FormControl('', Validators.required);
   private active = new FormControl('', Validators.required);
   private infoMsg = { body: '', type: 'info'};
-  private banners: any = [];
+  private minibanners: any = [];
   private minibanner = {};
   private imageEdit;
   private imageEditRef;
@@ -31,11 +30,11 @@ export class MinibannerComponent implements OnInit, OnDestroy, AfterViewInit {
   private dtOptions: DataTables.Settings = {};
   private bannerEditImage = {};
 
-  constructor(private _bannerService: MinibannerService, private formBuilder: FormBuilder) { }
+  constructor(private _minibannerService: MinibannerService, private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
     this.dtOptions = datatablesConfig;
-    this.banners = this.getMinibanners();
+    this.getMinibanners();
     this.addMinibannerForm = this.formBuilder.group({
       name: this.name,
       order: this.order,
@@ -50,9 +49,9 @@ export class MinibannerComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   getMinibanners(): void {
-    this._bannerService.getData().subscribe(
+    this._minibannerService.getData().subscribe(
       data => {
-        this.banners = data;
+        this.minibanners = data;
         this.rerender();
       },
       error => console.log(error),
@@ -61,7 +60,7 @@ export class MinibannerComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   addMinibanner(): void {
-    this._bannerService.create(this.addMinibannerForm.value);
+    this._minibannerService.create(this.addMinibannerForm.value);
     this.rerender();
   }
 
@@ -71,7 +70,7 @@ export class MinibannerComponent implements OnInit, OnDestroy, AfterViewInit {
       minibanner.imageRef = this.imageEditRef;
     }
 
-    this._bannerService.update(minibanner.id, minibanner).then(
+    this._minibannerService.update(minibanner.id, minibanner).then(
       res => {
         this.isEditing = false;
         this.sendInfoMsg('Minibanner editado com sucesso.', 'success');
@@ -83,7 +82,7 @@ export class MinibannerComponent implements OnInit, OnDestroy, AfterViewInit {
 
   deleteMinibanner(minibanner): void {
     if (window.confirm('Tem certeza que quer deletar este minibanner?')) {
-      this._bannerService.delete(minibanner.id).then(
+      this._minibannerService.delete(minibanner.id).then(
         res => {
           UploadService.deleteFile(minibanner.imageRef);
           this.sendInfoMsg('Minibanner deletado com sucesso.', 'success');

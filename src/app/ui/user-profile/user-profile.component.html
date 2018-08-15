@@ -6,7 +6,7 @@
 
 <!-- User NOT logged in -->
 <ng-template #guest class="box">
-  <h3>Olá, Visitante</h3>
+  <h4>Olá, Visitante</h4>
   <p class="card-text">Login to get started...</p>
   <button class="button" routerLink="/login">Login</button>
 </ng-template>
@@ -14,11 +14,16 @@
 <!-- User logged in -->
 <ng-template #authenticated>
   <div *ngIf="auth.user | async as user">
-    <h3>Olá, {{ user.displayName }}</h3>
+    <h4>Olá, {{ user.displayName }}</h4>
     <img class="card-img-top" [src]="user.photoURL || 'https://api.adorable.io/avatars/109/fire.png'" width=50px>
     <br />
     <br />
-    <button class="button is-success" (click)="logout()">Logout</button>
+    <button class="button is-success" (click)="logout()">
+      <span class="icon">
+        <i class="fas fa-power-off"></i>
+      </span> &nbsp;
+      Logout
+    </button>
   </div>
 </ng-template>
 

@@ -7,7 +7,7 @@ import { HomePageComponent } from './ui/home-page/home-page.component';
 import { NotesListComponent } from './notes/notes-list/notes-list.component';
 import { BannerComponent } from './banner/banner.component';
 import { MinibannerComponent } from './minibanner/minibanner.component';
-import { UploadPageComponent } from './uploads/upload-page/upload-page.component';
+import { UploadPageComponent } from './upload-page/upload-page.component';
 
 import { SsrPageComponent } from './ui/ssr-page/ssr-page.component';
 

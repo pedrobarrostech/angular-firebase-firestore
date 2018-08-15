@@ -22,7 +22,7 @@ export class BannerComponent implements OnInit, OnDestroy, AfterViewInit {
   private name = new FormControl('', Validators.required);
   private order = new FormControl('', Validators.required);
   private active = new FormControl('', Validators.required);
-  private infoMsg = { body: '', type: 'info'};
+  private infoMsg = { body: '', type: 'info' };
   private banners: any = [];
   private banner = {};
   private imageEdit;
@@ -35,7 +35,8 @@ export class BannerComponent implements OnInit, OnDestroy, AfterViewInit {
 
   ngOnInit(): void {
     this.dtOptions = datatablesConfig;
-    this.banners = this.getBanners();
+
+    this.getBanners();
     this.addBannerForm = this.formBuilder.group({
       name: this.name,
       order: this.order,
@@ -139,12 +140,14 @@ export class BannerComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   rerender(): void {
-    this.dtElement.dtInstance.then((dtInstance: DataTables.Api) => {
-      // Destroy the table first
-      dtInstance.destroy();
-      // Call the dtTrigger to rerender again
-      this.dtTrigger.next();
-    });
+    if (this.dtElement && this.dtElement.dtInstance) {
+      this.dtElement.dtInstance.then((dtInstance: DataTables.Api) => {
+        // Destroy the table first
+        dtInstance.destroy();
+        // Call the dtTrigger to rerender again
+        this.dtTrigger.next();
+      });
+    }
   }
 
 }

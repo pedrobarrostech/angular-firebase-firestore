@@ -14,6 +14,8 @@ import { UploadService } from './_services/upload.service';
 import { AuthGuard } from './_services/auth.guard';
 import { AuthService } from './_services/auth.service';
 import { NotifyService } from './_services/notify.service';
+import { DropZoneDirective } from './upload/drop-zone.directive';
+import { FileSizePipe } from './upload/file-size.pipe';
 
 const MODULES = [
   CommonModule,
@@ -29,11 +31,15 @@ const MODULES = [
 ];
 
 const PIPES = [
-  // put pipes here
+  FileSizePipe
 ];
 
 const COMPONENTS = [
   // put shared components here
+];
+
+const DIRECTIVES = [
+  DropZoneDirective
 ];
 
 const SERVICES = [
