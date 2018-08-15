@@ -9,8 +9,8 @@ import { Observable } from 'rxjs';
 import { map, take, tap } from 'rxjs/operators';
 
 import { AngularFireAuth } from 'angularfire2/auth';
-import { AuthService } from './auth.service';
-import { NotifyService } from './notify.service';
+import { AuthService } from '../_services/auth.service';
+import { NotifyService } from '../_services/notify.service';
 
 @Injectable({
   providedIn: 'root'

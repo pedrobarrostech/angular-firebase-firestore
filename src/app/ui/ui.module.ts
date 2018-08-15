@@ -1,7 +1,4 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
-import { ReactiveFormsModule } from '@angular/forms';
 import { CoreModule } from '../core/core.module';
 
 import { UserLoginComponent } from './user-login/user-login.component';
@@ -12,9 +9,10 @@ import { NotificationMessageComponent } from './notification-message/notificatio
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { UserFormComponent } from './user-form/user-form.component';
 import { SsrPageComponent } from './ssr-page/ssr-page.component';
-
+import { SsrPageRoute } from './ssr-page/ssr.page.route';
+import { UserLoginRoute } from './user-login/user-login.route';
 @NgModule({
-  imports: [CoreModule],
+  imports: [CoreModule, SsrPageRoute, UserLoginRoute],
   declarations: [
     UserLoginComponent,
     HomePageComponent,

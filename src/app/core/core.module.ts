@@ -11,7 +11,7 @@ import { CommonModule } from '@angular/common';
 import { BannerService } from './_services/banner.service';
 import { MinibannerService } from './_services/minibanner.service';
 import { UploadService } from './_services/upload.service';
-import { AuthGuard } from './_services/auth.guard';
+import { AuthGuard } from './_guards/auth.guard';
 import { AuthService } from './_services/auth.service';
 import { NotifyService } from './_services/notify.service';
 import { DropZoneDirective } from './upload/drop-zone.directive';
