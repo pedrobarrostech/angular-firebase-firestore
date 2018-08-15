@@ -12,6 +12,8 @@ import { environment } from '../environments/environment';
 // Firestarter App Modules
 import { UploadPageModule } from './upload-page/upload-page.module';
 import { UiModule } from './ui/ui.module';
+import { HomeModule } from './home/home.module';
+import { LoginModule } from './login/login.module';
 import { NotesModule } from './notes/notes.module';
 import { BannerModule } from './banner/banner.module';
 import { MinibannerModule } from './minibanner/minibanner.module';
@@ -22,10 +24,6 @@ import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { AngularFireStorageModule } from 'angularfire2/storage';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AngularFireFunctionsModule } from 'angularfire2/functions';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
-// IMPORTANT
-// Add your own project credentials to environments/*.ts
 
 @NgModule({
   declarations: [AppComponent],
@@ -33,6 +31,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
     BrowserTransferStateModule,
     AppRoute,
+    LoginModule,
+    HomeModule,
     UiModule,
     NotesModule,
     BannerModule,

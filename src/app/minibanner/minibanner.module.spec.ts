@@ -1,6 +1,6 @@
 import { MinibannerModule } from './minibanner.module';
 
-describe('MinibannersModule', () => {
+describe('MinibannerModule', () => {
   let bannersModule: MinibannerModule;
 
   beforeEach(() => {

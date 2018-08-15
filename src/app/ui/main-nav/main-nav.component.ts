@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
+import { AuthService } from '../../core/_services/auth.service';
 @Component({
   selector: 'main-nav',
   templateUrl: './main-nav.component.html',
@@ -7,12 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainNavComponent {
 
-  show = false;
+  public show = false;
 
-  constructor() { }
+  constructor(public auth: AuthService) { }
 
-  toggleCollapse() {
+  toggleCollapse(): void {
     this.show = !this.show;
+  }
+
+  logout(): void {
+    this.auth.signOut();
   }
 
 }

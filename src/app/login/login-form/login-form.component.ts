@@ -7,14 +7,14 @@ type UserFields = 'email' | 'password';
 type FormErrors = { [u in UserFields]: string };
 
 @Component({
-  selector: 'user-form',
-  templateUrl: './user-form.component.html',
-  styleUrls: ['./user-form.component.scss'],
+  selector: 'login-form',
+  templateUrl: './login-form.component.html',
+  styleUrls: ['./login-form.component.scss'],
 })
-export class UserFormComponent implements OnInit {
+export class LoginFormComponent implements OnInit {
 
   userForm: FormGroup;
-  newUser = true; // to toggle login or signup form
+  newUser = false; // to toggle login or signup form
   passReset = false; // set to true when password reset is triggered
   formErrors: FormErrors = {
     'email': '',
@@ -22,14 +22,14 @@ export class UserFormComponent implements OnInit {
   };
   validationMessages = {
     'email': {
-      'required': 'Email is required.',
-      'email': 'Email must be a valid email',
+      'required': 'E-mail é obrigatório.',
+      'email': 'E-mail precisa ser válido.',
     },
     'password': {
-      'required': 'Password is required.',
-      'pattern': 'Password must be include at one letter and one number.',
-      'minlength': 'Password must be at least 4 characters long.',
-      'maxlength': 'Password cannot be more than 40 characters long.',
+      'required': 'Senha é obrigatório.',
+      'pattern': 'A senha deve conter letras e números.',
+      'minlength': 'A senha deve ter pelo menos 4 caracteres.',
+      'maxlength': 'A senha não pode ter mais de 40 caracteres.'
     },
   };
 

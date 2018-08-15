@@ -1,15 +1,14 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { ReactiveFormsModule } from '@angular/forms';
 
-import { AuthService } from '../../core/_services/auth.service';
+import { AuthService } from '../core/_services/auth.service';
 
 @Component({
-  selector: 'user-login',
-  templateUrl: './user-login.component.html',
-  styleUrls: ['./user-login.component.scss'],
+  selector: 'app-login',
+  templateUrl: './login.component.html',
+  styleUrls: ['./login.component.scss'],
 })
-export class UserLoginComponent {
+export class LoginComponent {
 
   constructor(public auth: AuthService,
               private router: Router) { }

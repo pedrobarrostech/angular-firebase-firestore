@@ -105,8 +105,8 @@ export class AuthService {
     return this.afAuth.auth
       .signInWithEmailAndPassword(email, password)
       .then(credential => {
-        this.notify.update('Welcome back!', 'success');
-        return this.updateUserData(credential.user);
+        this.updateUserData(credential.user);
+        this.router.navigate(['/home']);
       })
       .catch(error => this.handleError(error));
   }
