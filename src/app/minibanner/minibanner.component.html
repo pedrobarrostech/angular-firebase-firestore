@@ -107,7 +107,7 @@
               <img src="{{ minibanner.image }}" alt="{{minibanner.name}}" width="50" />
             </td>
             <td align="center">{{minibanner.order}}</td>
-            <td align="center" class="{{banner.active == 1 ? 'has-text-success': 'has-text-danger'}}">{{minibanner.active == 1 ? 'Sim': 'Não'}}</td>
+            <td align="center" class="{{minibanner.active == 1 ? 'has-text-success': 'has-text-danger'}}">{{minibanner.active == 1 ? 'Sim': 'Não'}}</td>
             <td align="center">
               <button class="button is-small is-warning" (click)="enableEditing(minibanner)">
                 <i class="fa fa-edit"></i>

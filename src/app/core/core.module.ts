@@ -57,7 +57,8 @@ const SERVICES = [
   ],
   declarations: [
     ...PIPES,
-    ...COMPONENTS
+    ...COMPONENTS,
+    ...DIRECTIVES
   ],
   providers: [
     ...SERVICES
