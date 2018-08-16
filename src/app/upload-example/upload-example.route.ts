@@ -2,14 +2,14 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
-import { UploadPageComponent } from './upload-page.component';
+import { UploadExampleComponent } from './upload-example.component';
 import { AuthGuard } from '../core/_guards/auth.guard';
 
 @NgModule({
   imports: [
     RouterModule.forChild([
-      { path: 'uploads', component: UploadPageComponent, canActivate: [AuthGuard] }
+      { path: 'uploads', component: UploadExampleComponent, canActivate: [AuthGuard] }
     ])
   ]
 })
-export class UploadPageRoute { }
+export class UploadExampleRoute { }

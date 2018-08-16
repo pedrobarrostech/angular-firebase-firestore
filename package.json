@@ -16,6 +16,7 @@
     "private": true,
     "dependencies": {
         "@angular/animations": "^6.0.1",
+        "@angular/cdk": "^6.4.5",
         "@angular/common": "^6.0.1",
         "@angular/compiler": "^6.0.1",
         "@angular/core": "^6.0.1",
@@ -28,17 +29,19 @@
         "@angular/router": "^6.0.1",
         "@angular/service-worker": "^6.0.1",
         "@nguniversal/module-map-ngfactory-loader": "^6.0.0",
+        "@types/moment": "^2.13.0",
+        "angular-datatables": "^4.2.0",
         "angularfire2": "^5.0.0-rc.9",
         "core-js": "^2.5.4",
-        "firebase": "^5.0.2",
-        "rxjs": "^6.0.0",
-        "zone.js": "^0.8.26",
-        "firebase-functions": "^2.0.4",
-        "angular-datatables": "^4.2.0",
         "datatables.net": "^1.10.15",
         "datatables.net-dt": "^1.10.15",
+        "firebase": "^5.0.2",
+        "firebase-functions": "^2.0.4",
         "jquery": "^3.2.1",
-        "rxjs-compat": "^6.1.0"
+        "ng-pick-datetime": "^6.0.15",
+        "rxjs": "^6.0.0",
+        "rxjs-compat": "^6.1.0",
+        "zone.js": "^0.8.26"
     },
     "devDependencies": {
         "@angular-devkit/build-angular": "~0.6.1",

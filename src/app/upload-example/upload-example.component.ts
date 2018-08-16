@@ -8,11 +8,11 @@ import { Observable } from 'rxjs';
 import { tap, finalize } from 'rxjs/operators';
 
 @Component({
-  selector: 'upload-page',
-  templateUrl: './upload-page.component.html',
-  styleUrls: ['./upload-page.component.scss']
+  selector: 'upload-example',
+  templateUrl: './upload-example.component.html',
+  styleUrls: ['./upload-example.component.scss']
 })
-export class UploadPageComponent {
+export class UploadExampleComponent {
   // Main task
   task: AngularFireUploadTask;
 

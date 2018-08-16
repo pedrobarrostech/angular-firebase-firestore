@@ -10,7 +10,7 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 
 // Firestarter App Modules
-import { UploadPageModule } from './upload-page/upload-page.module';
+import { UploadExampleModule } from './upload-example/upload-example.module';
 import { UiModule } from './ui/ui.module';
 import { HomeModule } from './home/home.module';
 import { LoginModule } from './login/login.module';
@@ -37,7 +37,7 @@ import { AngularFireFunctionsModule } from 'angularfire2/functions';
     NotesModule,
     BannerModule,
     MinibannerModule,
-    UploadPageModule,
+    UploadExampleModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
     AngularFireAuthModule,

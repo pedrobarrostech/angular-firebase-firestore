@@ -6,8 +6,6 @@ import { Subject } from 'rxjs';
 import datatablesConfig from '../core/_configs/datatable-pt-br.config';
 import * as firebase from 'firebase';
 import { DataTableDirective } from 'angular-datatables';
-
-
 @Component({
   selector: 'app-banner',
   templateUrl: './banner.component.html',
@@ -22,6 +20,9 @@ export class BannerComponent implements OnInit, OnDestroy, AfterViewInit {
   private name = new FormControl('', Validators.required);
   private order = new FormControl('', Validators.required);
   private active = new FormControl('', Validators.required);
+  private link = new FormControl('', Validators.required);
+  private dateInit = new FormControl('', Validators.required);
+  private dateFinal = new FormControl('', Validators.required);
   private infoMsg = { body: '', type: 'info' };
   private banners: any = [];
   private banner = {};
@@ -40,6 +41,9 @@ export class BannerComponent implements OnInit, OnDestroy, AfterViewInit {
     this.addBannerForm = this.formBuilder.group({
       name: this.name,
       order: this.order,
+      link: this.link,
+      dateInit: this.dateInit,
+      dateFinal: this.dateFinal,
       image: null,
       imageRef: null,
       active: this.active
@@ -120,7 +124,10 @@ export class BannerComponent implements OnInit, OnDestroy, AfterViewInit {
 
   enableEditing(banner): void {
     this.isEditing = true;
+    banner.dateInit = new Date(banner.dateInit.toMillis());
+    banner.dateFinal = new Date(banner.dateFinal.toMillis());
     this.banner = banner;
+
   }
 
   cancelEditing(): void {

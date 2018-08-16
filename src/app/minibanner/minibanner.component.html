@@ -26,6 +26,13 @@
       </div>
 
       <div class="field">
+        <label for="name" class="label">Link</label>
+        <div class="control">
+          <input class="input" placeholder="Link" name="link" formControlName="link" type="text" />
+        </div>
+      </div>
+
+      <div class="field">
         <label for="image" class="label">Imagem</label>
         <div class="file">
           <label class="file-label">
@@ -118,6 +125,13 @@
                 <div class="field">
                   <label for="name" class="label">Nome</label>
                   <input class="input" type="text" name="name" placeholder="Name" [(ngModel)]="minibanner.name" required>
+                </div>
+
+                <div class="field">
+                  <label for="name" class="label">Link</label>
+                  <div class="control">
+                    <input class="input" placeholder="Link" name="link" type="text" [(ngModel)]="minibanner.link" required />
+                  </div>
                 </div>
 
                 <div class="field">

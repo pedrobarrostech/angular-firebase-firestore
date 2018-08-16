@@ -21,6 +21,7 @@ export class MinibannerComponent implements OnInit, OnDestroy, AfterViewInit {
   private name = new FormControl('', Validators.required);
   private order = new FormControl('', Validators.required);
   private active = new FormControl('', Validators.required);
+  private link = new FormControl('', Validators.required);
   private infoMsg = { body: '', type: 'info'};
   private minibanners: any = [];
   private minibanner = {};
@@ -38,6 +39,7 @@ export class MinibannerComponent implements OnInit, OnDestroy, AfterViewInit {
     this.addMinibannerForm = this.formBuilder.group({
       name: this.name,
       order: this.order,
+      link: this.link,
       image: null,
       imageRef: null,
       active: this.active
