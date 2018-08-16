@@ -4,7 +4,7 @@ const webpack = require('webpack');
 const APP_NAME = 'firestarter';
 
 module.exports = {
-  entry: {  prerender: './prerender.ts' },
+  entry: { server: './server.ts' },
   resolve: { extensions: ['.js', '.ts'] },
   mode: 'development',
   target: 'node',
