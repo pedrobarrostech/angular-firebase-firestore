@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy, AfterViewInit, ViewChild, ChangeDetectionStrategy } from '@angular/core';
+import { Component, OnInit, OnDestroy, AfterViewInit, ViewChild } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 import { BannerService } from './banner.service';
 import { UploadService } from '../core/_services/upload.service';
@@ -9,7 +9,6 @@ import { DataTableDirective } from 'angular-datatables';
 
 @Component({
   selector: 'app-banner',
-  changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './banner.component.html',
   styleUrls: ['./banner.component.scss']
 })
@@ -38,7 +37,6 @@ export class BannerComponent implements OnInit, OnDestroy, AfterViewInit {
 
   ngOnInit(): void {
     this.dtOptions = datatablesConfig;
-
     this.getBanners();
     this.addBannerForm = this.formBuilder.group({
       name: this.name,
