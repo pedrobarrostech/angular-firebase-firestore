@@ -62,8 +62,13 @@ export class MinibannerComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   addMinibanner(): void {
-    this._minibannerService.create(this.addMinibannerForm.value);
-    this.rerender();
+    this._minibannerService.create(this.addMinibannerForm.value).then(
+      res => {
+        this.addMinibannerForm.reset();
+        this.rerender();
+      },
+      error => console.log(error)
+    );
   }
 
   editMinibanner(minibanner): void {

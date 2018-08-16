@@ -4,6 +4,9 @@ import { BannerComponent } from './banner.component';
 import { BannerService } from './banner.service';
 import { BannerRoute } from './banner.route';
 import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
+import { DateTimeAdapter, OWL_DATE_TIME_LOCALE, OwlDateTimeIntl } from 'ng-pick-datetime';
+import { NativeDateTimeAdapter } from 'ng-pick-datetime/date-time/adapter/native-date-time-adapter.class';
+import { DatepickerPtBrConfig } from '../core/_configs/datepicker-pt-br.config';
 @NgModule({
   imports: [
     CoreModule,
@@ -12,6 +15,11 @@ import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
     OwlNativeDateTimeModule
   ],
   declarations: [BannerComponent],
-  providers: [BannerService]
+  providers: [
+    BannerService,
+    {provide: OWL_DATE_TIME_LOCALE, useValue: 'pt-br'},
+    {provide: DateTimeAdapter, useClass: NativeDateTimeAdapter, deps: [OWL_DATE_TIME_LOCALE]},
+    {provide: OwlDateTimeIntl, useClass: DatepickerPtBrConfig},
+  ]
 })
 export class BannerModule { }
